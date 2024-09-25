@@ -2,15 +2,15 @@
 
 public ref struct Bag
 {
-    public double MaxVolume { get; init; }
+    public int MaxVolume { get; init; }
     
     private List<Jewel> jewels;
-    private double volumeInside = 0;
+    private int volumeInside = 0;
 
     /// <summary>
     /// New empty bag
     /// </summary>
-    public Bag(double maxVolume)
+    public Bag(int maxVolume)
     {
         MaxVolume = maxVolume;
         jewels = new List<Jewel>();
@@ -53,10 +53,10 @@ public ref struct Bag
         var usedVolume = jewels.Sum(j => j.Volume);
 
         builder.AppendLine($"Bag with volume {usedVolume}l/{MaxVolume}l contains ({totalPrice:C}):");
-        foreach (var jewel in jewels)
-        {
-            builder.AppendLine($"\t{jewel.Volume}l, {jewel.Price:C}");
-        }
+        //foreach (var jewel in jewels)
+        //{
+        //    builder.AppendLine($"\t{jewel.Volume}l, {jewel.Price:C}");
+        //}
 
         Console.WriteLine(builder.ToString());
     }
